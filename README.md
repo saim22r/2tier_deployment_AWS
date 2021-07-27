@@ -56,7 +56,7 @@ server {
 }
 ```
 - Check nginx config `sudo nginx -t`
-- Restart nginx `sudo systemctl restart nginx`
+- Restart nginx `sudo systemctl restart nginx` and `sudo systemctl enable nginx`
 - Run `npm start` in app directory
 ### Set env variable
 - Run the following line in the main directory and remember the database public IP `sudo echo export DB_HOST="mongodb://DATBASE_PUBLIC_IP:27017/posts" >> ~/.bashrc`
