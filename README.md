@@ -32,6 +32,7 @@
 - Upgrade VM `sudo apt-get upgrade -y`
 - Install nginx `sudo apt-get install nginx -y`
 - Install nodejs `sudo apt install node.js -y` and `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -` and `sudo apt install nodejs -y`
+- Install python dependencies `sudo apt-get install python-software-properties -y`
 - Install pm2 `sudo npm install pm2 -y -g`
 - Check nginx status `systemctl status nginx`
 ### Reverse proxy setup
