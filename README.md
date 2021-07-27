@@ -21,12 +21,12 @@
 - Open GitBash, navigate to `.ssh` directory and paste the `chmod...`
 - Copy `ssh -i ...` and paste it into the same directory to enter VM 
 
-## Security group setup
+# Security group setup
 ### Connecting the app to the db
 ![img_1.png](img_1.png)
 ### Connecting the db to the app
 ![img_2.png](img_2.png)
-## App instance setup
+# App instance setup
 ### SSH into the app instance through the .ssh directory and follow the steps below
 - Update VM `sudo apt-get update -y`
 - Upgrade VM `sudo apt-get upgrade -y`
@@ -61,6 +61,21 @@ server {
 - Run the following line in the main directory and remember the database public IP `sudo echo export DB_HOST="mongodb://DATBASE_PUBLIC_IP:27017/posts" >> ~/.bashrc`
 - Run the source file `source ~/.bashrc`
 - Check if env variable is present using `env`
-## DB instance setup
-
-
+# DB instance setup
+- Run mongodb key `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927`
+- Get mongo repo `echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list`
+- Update VM `sudo apt-get update -y`
+- Upgrade VM `sudo apt-get upgrade -y`
+- Install mongodb packages `sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20`
+- Navigate to `/etc` and `sudo nano mongod.conf`
+- Change port and bindIp: `port = 27017` and `bindIp = 0.0.0.0`
+- Exit and save 
+- Run the following commands
+```
+sudo systemctl restart mongod
+sudo systemctl enable mongod
+```
+### Get posts
+- Navigate to `seeds` in the app directory
+- Run `node seed.js`
+- Navigate back to `app` and run `npm start`
