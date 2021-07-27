@@ -1,4 +1,5 @@
-#2 Tier App Deployment - AWS
+# Two Tier App Deployment - AWS
+
 ## Diagram
 ![img.png](img.png)
 
